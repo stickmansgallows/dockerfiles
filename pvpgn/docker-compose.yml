@@ -1,0 +1,12 @@
+pvpgn:
+  ports:
+    - "80:80"
+
+  image: stickmansgallows/pvpgn
+
+  container_name: pvpgn
+  
+pvpgn-mysql:
+  image: mysql
+  container_name: pvpgn-mysql
+  
