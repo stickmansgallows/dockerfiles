@@ -1,13 +1,11 @@
-FROM ubuntu:14.04
+FROM ubuntu:xenial
 MAINTAINER stickmansgallows
 
 RUN apt-get update \
-    && apt-get install -y wget git cmake make build-essential zlib1g-dev liblua5.1-0-dev \
+    && apt-get install -y wget git cmake make build-essential zlib1g-dev liblua5.1-0-dev libmysqlclient-dev \
     && apt-get clean
     
-COPY *.sh
-RUN buildPvPGN.sh
+COPY buildPvPGN.sh /opt
+RUN /opt/buildPvPGN.sh
 
-EXPOSE 80
-
-CMD [ "pvpgnStart.sh" ]
+CMD [ "/usr/local/pvpgn/sbin/bnetd -f" ]
