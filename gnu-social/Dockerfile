@@ -12,4 +12,4 @@ EXPOSE 80
 
 VOLUME ["/var/www"]
 
-ENTRYPOINT ["/init"]
+ENTRYPOINT ["/bin/bash"]

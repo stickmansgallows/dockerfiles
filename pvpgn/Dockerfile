@@ -8,4 +8,4 @@ RUN apt-get update \
 COPY buildPvPGN.sh /opt
 RUN /opt/buildPvPGN.sh
 
-CMD [ "/usr/local/pvpgn/sbin/bnetd -f" ]
+CMD [ "/usr/local/pvpgn/sbin/bnetd", "-f" ] 
