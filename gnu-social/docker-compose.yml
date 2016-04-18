@@ -1,0 +1,19 @@
+gnusocial:
+    container_name: gnusocial
+    image: stickmansgallows:gnusocial
+    links:
+        - mysql:mysql
+    ports:
+        - "80:80"
+    volumes:
+        - /data/config:/etc/gnusocial
+        - /data/avatars:/var/www/html/avatars
+        - /data/files:/var/www/html/files
+        
+mysql:
+    container_name: mysql
+    image: mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=rootpassword
+    volumes:
+        - /data/mysql:/var/lib/mysql
