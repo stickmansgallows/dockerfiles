@@ -1,11 +1,11 @@
-PvPGN - Game network docker container
+# PvPGN - Game network docker container
 
 Work in Progress!!
 
-To start:
+## To start:
 docker run stickmansgallows/pvpgn
 
-Upcoming:
+## Upcoming:
 Link with mysql container
 Self contained mysql
 Volumes for user data
