@@ -1,17 +1,22 @@
-gnusocial:
-    container_name: gnusocial
-    image: stickmansgallows:gnusocial
-    links:
-        - gnusocialdb:mysql
-    ports:
-        - "80:80"
-    volumes:
-        - /data/gnusocial:/var/www/html
-        
-gnusocialdb:
-    container_name: gnusocialdb
-    image: mysql
-    environment:
-        - MYSQL_ROOT_PASSWORD=rootpassword
-    volumes:
-        - /data/mysql:/var/lib/mysql
+version: '2'
+
+services:
+    gnusocial:
+        container_name: gnusocial
+        image: stickmansgallows:gnusocial
+        links:
+            - gnusocialdb:mysql
+        ports:
+            - "80:80"
+        volumes:
+            - /data/gnusocial:/var/www/html
+        depends_on:
+            - gnusocialdb
+            
+    gnusocialdb:
+        container_name: gnusocialdb
+        image: mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=rootpassword
+        volumes:
+            - /data/mysql:/var/lib/mysql

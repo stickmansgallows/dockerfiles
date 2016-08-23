@@ -1,10 +1,8 @@
 #!/bin/bash
 
-if [[ ! -f /var/www/html/README.md ]]; then
+if [[ ! -f /var/www/html/config.php ]]; then
     /install.sh
 fi
-rm -rf /social
-cd /var/www/html
-git pull
 
+mysql --user=root --password=rootpassword --host=mysql < /mysql.sh
 apache2-foreground

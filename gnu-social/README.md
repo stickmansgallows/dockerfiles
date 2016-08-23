@@ -8,18 +8,11 @@ https://www.codeword.xyz/2015/09/27/self-hosting-gnu-social/
         -e MYSQL_ROOT_PASSWORD=rootpassword \
         mysql
         
-    docker exec -ti gnusocialdb mysql -u root -p
-    Enter password: rootpassword
-    > CREATE DATABASE social;
-    > GRANT ALL PRIVILEGES ON social.* TO 'social' IDENTIFIED BY 'password';
-    > FLUSH PRIVILEGES;
-    > \q
-
 ## To start:
     docker run -d \
         --name gnusocial \
         -p 8080:80 \
-        -v /storage:/var/www \
+        -v /storage:/var/www/html \
         --link gnusocialdb:mysql \
         stickmansgallows/gnu-social
 
